@@ -1,17 +1,23 @@
 import './App.css';
 import { useState } from 'react';
 import uri from './uri';
+import QuestionAndAnswer from './QuestionAndAnswer';
+
 function App() {
   const [submitting, setSubmitting] = useState(false);
-  const [completion, setCompletion] = useState("");
+  const [questionAndAnswers, setQuestionAndAnswers] = useState([
+    {prompt: "What is Web3?", completion: "Web3 is the best!"}
+  ]);
+
   const handleSubmit = event => {
     event.preventDefault();
     setSubmitting(true);
     let userPrompt = event.currentTarget.prompt.value;
     if (userPrompt) {
       getCompletion(userPrompt);
+    } else {
+      setSubmitting(false);
     }
-    setSubmitting(false);
   }
 
   const getCompletion = async (prompt) => {
@@ -28,7 +34,8 @@ function App() {
     })
     const results = await response.json();
     const completion = results.choices[0].text;
-    setCompletion(completion);
+    setQuestionAndAnswers([...questionAndAnswers, {prompt: prompt, completion: completion}]);
+    setSubmitting(false);
   }
 
   return (
@@ -41,6 +48,9 @@ function App() {
       </p>
       <div className="wrapper">
         <h1>ChatWeb3</h1>
+        { questionAndAnswers.map((questionAndAnswer) => {
+          return <QuestionAndAnswer key={questionAndAnswer.prompt} prompt={questionAndAnswer.prompt} completion={questionAndAnswer.completion} />
+        }) }
         {submitting &&
         <div>Submitting Form...</div>
       }
@@ -53,10 +63,6 @@ function App() {
           </fieldset>
           <button type="submit">Submit</button>
         </form>
-        <h2>Completion</h2>
-        <div>
-          <div className='completion'>{completion}</div>
-        </div>
       </div>
     </div>
   );
