@@ -8,8 +8,9 @@ function App() {
     event.preventDefault();
     setSubmitting(true);
     let userPrompt = event.currentTarget.prompt.value;
-    console.log(userPrompt);
-    getCompletion(userPrompt);
+    if (userPrompt) {
+      getCompletion(userPrompt);
+    }
     setSubmitting(false);
   }
 
