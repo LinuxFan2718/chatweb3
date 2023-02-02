@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          ChatGPT is out of date. ChatWeb3 knows about the latest Web3 events!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>
+          A <a href="https://www.miamihackweek.com/">Miami Hack Week 2023</a> project by <a href="https://twitter.com/DennisLibre">Dennis</a> at <a href="https://www.daohouse.org/">DAO House</a>.
+        </p>
     </div>
   );
 }
