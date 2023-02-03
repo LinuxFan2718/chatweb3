@@ -53,13 +53,13 @@ function App() {
         }) }
         </div>
         <br />
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input name="prompt" />
-          </label>
-          <button type="submit">Send</button>
-        </form>
       </div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input name="prompt" />
+        </label>
+        <button type="submit">Send</button>
+      </form>
     </div>
   );
 }
