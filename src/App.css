@@ -26,6 +26,7 @@
   display: inline-block;
   padding: 1em;
   border-radius: 10px;
+  max-width: 800px;
 }
 
 .prompt {
@@ -40,10 +41,15 @@
   color: white;
   text-align: end;
   float:right;
+  margin: 1em;
 }
 
 .wrapper {
   max-width: 1024px;
   margin-left: auto;
   margin-right: auto;
+}
+
+input {
+  margin: 1em;
 }

@@ -51,13 +51,10 @@ function App() {
           return <QuestionAndAnswer key={questionAndAnswer.prompt} prompt={questionAndAnswer.prompt} completion={questionAndAnswer.completion} />
         }) }
         <form onSubmit={handleSubmit}>
-          <fieldset>
-            <label>
-              <p>Chat Bot</p>
-              <input name="prompt" />
-            </label>
-          </fieldset>
-          <button type="submit">Submit</button>
+          <label>
+            <input name="prompt" />
+          </label>
+          <button type="submit">Send</button>
         </form>
       </div>
     </div>
