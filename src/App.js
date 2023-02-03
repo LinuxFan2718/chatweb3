@@ -26,6 +26,8 @@ function App() {
     setQuestionAndAnswers([...questionAndAnswers, {prompt: prompt, completion: "..."}]);
     if (prompt.indexOf("FTX") > -1) {
       completion = 'FTX filed for Chapter 11 bankruptcy protection on Nov. 11, 2022, and CEO Sam Bankman-Fried resigned. According to its bankruptcy filing, FTX, which was once valued at $32 billion and has $8 billion of liabilities it can\'t pay to as many as 1 million creditors. The exchange\'s collapse was the result of "a complete failure of corporate control," according to John J. Ray III, the new, court-appointed chief executive of FTX.';
+    } else if (prompt.indexOf("Terra") > -1) {
+      completion = 'On May 7, 2022, the price of the Terra blockchain\'s then-$18-billion stablecoin terraUSD (UST), which is supposed to maintain a $1 peg, started to wobble and fell to 35 cents on May 9. Its companion token, LUNA, which was meant to stabilize UST\'s price, fell from $80 to a few cents by May 12.'
     } else {
       const headers = {
         'Content-Type': 'application/json'
