@@ -17,14 +17,27 @@
   color: #61dafb;
 }
 
+.textcontainer {
+  width: 100%;
+  min-height: 4em;
+}
+
+.textbubble {
+  display: inline-block;
+  padding: 1em;
+  border-radius: 10px;
+}
+
 .prompt {
   background-color: #ebebeb;
   color: black;
   text-align: left;
+  float: left;
 }
 
 .completion {
   background-color: #1e90ff;
   color: white;
-  text-align: right;
+  text-align: end;
+  float:right;
 }
