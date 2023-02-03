@@ -47,9 +47,12 @@ function App() {
       </p>
       <div className="wrapper">
         <h1>ChatWeb3</h1>
+        <div>
         { questionAndAnswers.map((questionAndAnswer) => {
           return <QuestionAndAnswer key={questionAndAnswer.prompt} prompt={questionAndAnswer.prompt} completion={questionAndAnswer.completion} />
         }) }
+        </div>
+        <br />
         <form onSubmit={handleSubmit}>
           <label>
             <input name="prompt" />

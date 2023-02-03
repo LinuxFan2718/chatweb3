@@ -5,9 +5,11 @@ function QuestionAndAnswer(params) {
       <div className="textcontainer">
         <div className="prompt textbubble">{prompt}</div>
       </div>
+      <br />
       <div className="textcontainer">
         <div className="completion textbubble">{completion}</div>
       </div>
+      <br />
     </div>
 )
 }
