@@ -17,6 +17,7 @@ function App() {
     if (userPrompt) {
       getCompletion(userPrompt);
     };
+    event.target.reset();
   }
 
   const getCompletion = async (prompt) => {
