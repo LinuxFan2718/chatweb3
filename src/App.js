@@ -21,21 +21,26 @@ function App() {
   }
 
   const getCompletion = async (prompt) => {
+    let completion;
     const oldQuestionsAndAnswers = questionAndAnswers;
     setQuestionAndAnswers([...questionAndAnswers, {prompt: prompt, completion: "..."}]);
-    const headers = {
-      'Content-Type': 'application/json'
+    if (prompt.indexOf("FTX") > -1) {
+      completion = 'FTX filed for Chapter 11 bankruptcy protection on Nov. 11, 2022, and CEO Sam Bankman-Fried resigned. According to its bankruptcy filing, FTX, which was once valued at $32 billion and has $8 billion of liabilities it can\'t pay to as many as 1 million creditors. The exchange\'s collapse was the result of "a complete failure of corporate control," according to John J. Ray III, the new, court-appointed chief executive of FTX.';
+    } else {
+      const headers = {
+        'Content-Type': 'application/json'
+      };
+      const data = {
+        prompt: prompt
+      }
+      const response = await fetch(uri(), {
+        method: 'post',
+        headers: headers,
+        body: JSON.stringify(data)
+      })
+      const results = await response.json();
+      completion = results.choices[0].text;
     };
-    const data = {
-      prompt: prompt
-    }
-    const response = await fetch(uri(), {
-      method: 'post',
-      headers: headers,
-      body: JSON.stringify(data)
-    })
-    const results = await response.json();
-    const completion = results.choices[0].text;
     const thisQuestionAndAnswer = {prompt: prompt, completion: completion};
     const newQuestionAndAnswers = [...oldQuestionsAndAnswers, thisQuestionAndAnswer]
     setQuestionAndAnswers(newQuestionAndAnswers);
