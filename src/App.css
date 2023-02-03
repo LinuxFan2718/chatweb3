@@ -16,3 +16,15 @@
 .App-link {
   color: #61dafb;
 }
+
+.prompt {
+  background-color: #ebebeb;
+  color: black;
+  text-align: left;
+}
+
+.completion {
+  background-color: #1e90ff;
+  color: white;
+  text-align: right;
+}

@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <p>
-        A <a href="https://www.miamihackweek.com/">Miami Hack Week 2023</a> project by <a href="https://cahillanelabs.com/profile-dennis">Dennis</a> at <a href="https://www.daohouse.org/">DAO House</a>.
+        A 🌴 <a href="https://www.miamihackweek.com/">Miami Hack Week 2023</a> project by 👨 <a href="https://cahillanelabs.com/profile-dennis">Dennis</a> at 🏠 <a href="https://www.daohouse.org/">DAO House</a>.
       </p>
       <div className="wrapper">
         <h1>ChatWeb3</h1>
@@ -53,7 +53,7 @@ function App() {
         <form onSubmit={handleSubmit}>
           <fieldset>
             <label>
-              <p>Input Prompt</p>
+              <p>Chat Bot</p>
               <input name="prompt" />
             </label>
           </fieldset>
