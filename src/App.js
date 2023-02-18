@@ -46,6 +46,18 @@ function App() {
     const thisQuestionAndAnswer = {prompt: prompt, completion: completion};
     const newQuestionAndAnswers = [...oldQuestionsAndAnswers, thisQuestionAndAnswer]
     setQuestionAndAnswers(newQuestionAndAnswers);
+
+    if ('speechSynthesis' in window) {
+      var msg = new SpeechSynthesisUtterance();
+      msg.text = completion;
+
+      msg.volume = 1; // Set the volume (0 to 1)
+      msg.rate = 1; // Set the speaking rate (0.1 to 10)
+      msg.pitch = 1; // Set the pitch (0 to 2)
+      window.speechSynthesis.speak(msg);
+    } else {
+      console.log('// Web Speech API is not supported')
+    }
   }
 
   return (
