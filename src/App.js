@@ -58,6 +58,20 @@ function App() {
     } else {
       console.log('// Web Speech API is not supported')
     }
+
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.maxAlternatives = 1;
+      recognition.addEventListener('result', function(event) {
+        var transcript = event.results[0][0].transcript;
+        console.log(transcript);
+        getCompletion(transcript);
+      });
+      recognition.start();
+    } else {
+      console.log('Speech Recognition API is not supported')
+    }
   }
 
   return (
