@@ -4,6 +4,7 @@ import uri from './uri';
 import QuestionAndAnswer from './QuestionAndAnswer';
 
 function App() {
+  const [speaking, setSpeaking] = useState(false);
   const [questionAndAnswers, setQuestionAndAnswers] = useState([
     {
       prompt: "What are you?",
@@ -54,6 +55,13 @@ function App() {
       msg.volume = 1; // Set the volume (0 to 1)
       msg.rate = 1; // Set the speaking rate (0.1 to 10)
       msg.pitch = 1; // Set the pitch (0 to 2)
+      msg.addEventListener('start', (event) => {
+        setSpeaking(true);
+      });
+      msg.addEventListener('end', (event) => {
+        setSpeaking(false);
+      });
+
       window.speechSynthesis.speak(msg);
     } else {
       console.log('// Web Speech API is not supported')
@@ -81,6 +89,8 @@ function App() {
       </p>
       <div className="wrapper">
         <h1>ChatWeb3</h1>
+        <img className={speaking ? 'speaking avatar' : 'silent avatar'} src="avatar.png" alt="robot avatar" />
+        <p>{speaking ? 'Speaking...' : 'Not speaking'}</p>
         <div>
         { questionAndAnswers.map((questionAndAnswer) => {
           return <QuestionAndAnswer key={questionAndAnswer.prompt} prompt={questionAndAnswer.prompt} completion={questionAndAnswer.completion} />

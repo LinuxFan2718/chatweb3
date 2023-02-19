@@ -54,3 +54,22 @@
 input {
   margin: 1em;
 }
+
+.avatar {
+  object-fit: cover;
+  width: 512px;
+  height: 512px;
+}
+.speaking {
+  box-shadow: 1em red;
+  animation: 4s linear 0s infinite alternate psychedelic;
+}
+
+@keyframes psychedelic {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
